@@ -1,3 +1,9 @@
+# Description : fetching intraday data from public sources
+# can be wrapped in line of getSymbols from the package quantmod for seamless
+# integration of intraday and end-of-day back-testing and trading system with a few changes
+# Website : http://prodiptag.blogspot.in/ (warning... much less about R and more about 
+# "whole sort of general mish mash"
+
 require(xts)
 require(RCurl)
 
