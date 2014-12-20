@@ -18,11 +18,13 @@ Example:
 
 #1
 require(quantmod)
+source("GetIntradayPrice.R")
 getIntradayPrice("^NSEI", src="yahoo")
 chart_Series(NSEI)
 
 #2
 require(quantmod)
+source("GetIntradayPrice.R")
 getIntradayPrice("SPY",period=10,interval=30)
 chart_Series(SPY)
 
