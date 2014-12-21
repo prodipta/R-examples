@@ -114,7 +114,7 @@ func_yahoo <- function(x){
   return(c(col1,col2,col3,col4,col5,col6))
 }
 	
-getGoogleQuote <- function(ticker,period=1,interval=300,tz){
+getGoogleQuote <- function(ticker,period=1,interval=300,tz=NULL,auto.assign=TRUE){
 
 	ticker<-strsplit(ticker,":")
 	if (length(ticker[[1]]) != 1) {
@@ -181,10 +181,14 @@ getGoogleQuote <- function(ticker,period=1,interval=300,tz){
   if(sum(z[,5])==0){
     z <- z[,-5]
   }
+  
+  if (auto.assign==FALSE)
+      return(z)
+  
 	assign(ticker,z,1)
 }
 
-getYahooQuote <- function(ticker,period=1,interval=300,tz){
+getYahooQuote <- function(ticker,period=1,interval=300,tz=NULL,auto.assign=TRUE){
   
   url<-paste("http://chartapi.finance.yahoo.com/instrument/1.0/",ticker,"/chartdata;type=quote;range=",period,"d/csv",sep="")
   
@@ -229,27 +233,26 @@ getYahooQuote <- function(ticker,period=1,interval=300,tz){
   }
   
   z <- my.to.period(z,interval/60)
+  
+  if (auto.assign==FALSE)
+    return(z)
+  
   assign(ticker,z,1)
 }
 
 
-getIntradayPrice<- function(ticker,src='google',period=1,interval=5,tz=NULL){
+getIntradayPrice<- function(ticker,src='google',period=1,interval=5,tz=NULL, auto.assign=TRUE){
   
   if (src == 'google'){
-    getGoogleQuote(ticker,period,interval*60,tz)
+    getGoogleQuote(ticker,period,interval*60,tz,auto.assign)
   }
   else if(src == 'yahoo'){
-    getYahooQuote(ticker,period,interval*60,tz)
+    getYahooQuote(ticker,period,interval*60,tz,auto.assign)
   }
   else {
     stop("illegal source")
   }
 }
-
-
-
-
-
 
 
 
