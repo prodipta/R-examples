@@ -120,6 +120,8 @@ initEq <- 1e5
 .maxSize <- 100000
 .slow = 100
 .fast = 50
+short.threshold <-0.5
+long.threshold <- 0.5
 qs.account <- "pattern.act"
 qs.portfolio <- "pattern.port"
 qs.strategy <- "pattern.strat"
