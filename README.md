@@ -18,3 +18,6 @@ This example demonstrates a back-test of technical pattern performance for many 
 
 This is an example set-up for designing and training a wide-n-deep TensorFlow model in R (which is now a breeze thanks to the recently released Keras interface from R Studio). See the discussion for more details at <http://prodiptag.blogspot.com/2017/06/off-topic-wide-and-deep-learning-in-r.html>
 
+## Auto-encoder
+
+This is an set-up for extracting (time-series) momentum factors from a set of technical inputs using a 2 layer 3 latent dimension autoencoding based on the Keras/ TensorFlow framework. See the discussion for more details at <http://prodiptag.blogspot.co.uk/2017/10/systematic-trading-using-autoencoder.html>
